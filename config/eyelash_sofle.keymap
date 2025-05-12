@@ -57,11 +57,11 @@
         layer_6 {
             display-name = "LAYER0";
             bindings = <
-&kp ESC         &kp N1        &kp N2        &kp N3  &kp N4   &kp N5       &to 2  &kp MINUS  &kp PLUS       &kp ASTERISK   &kp SLASH     &kp N0        &kp MINUS
-&kp GRAVE       &kp Q         &kp W         &kp E   &kp R    &kp T        &to 4  &kp HOME   &kp UP         &kp END        &kp N7        &kp N8        &kp N9
-&kp LEFT_SHIFT  &kp A         &kp S         &kp D   &kp F    &kp G        &to 6  &kp LEFT   &kp DOWN       &kp RIGHT      &kp NUMBER_4  &kp N5        &kp NUMBER_6
-&kp LCTRL       &kp Z         &kp X         &kp C   &kp V    &kp B        &to 3  &kp N      &kp M          &kp COMMA      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3
-&mkp MCLK       &kp LEFT_GUI  &kp LEFT_ALT  &trans  &kp DEL  &kp SPACE    &to 0  &kp RET    &kp BACKSPACE  &kp BACKSLASH  &kp PERIOD    &kp N0
+&kp ESC         &kp N1        &kp N2        &kp N3  &kp N4   &kp N5       &to 2  &kp MINUS  &kp PLUS       &kp PLUS    &kp MINUS     &kp ASTERISK  &kp SLASH
+&kp GRAVE       &kp Q         &kp W         &kp E   &kp R    &kp T        &to 4  &kp HOME   &kp UP         &kp END     &kp N7        &kp N8        &kp N9
+&kp LEFT_SHIFT  &kp A         &kp S         &kp D   &kp F    &kp G        &to 6  &kp LEFT   &kp DOWN       &kp RIGHT   &kp NUMBER_4  &kp N5        &kp NUMBER_6
+&kp LCTRL       &kp Z         &kp X         &kp C   &kp V    &kp B        &to 3  &kp N      &kp M          &kp COMMA   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3
+&mkp MCLK       &kp LEFT_GUI  &kp LEFT_ALT  &trans  &kp DEL  &kp SPACE    &to 0  &kp RET    &kp BACKSPACE  &kp K_MENU  &kp PERIOD    &kp N0
             >;
 
             sensor-bindings = <&scroll_encoder>;
