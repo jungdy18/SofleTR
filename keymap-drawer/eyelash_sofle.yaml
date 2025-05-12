@@ -10,10 +10,10 @@ layers:
   - {t: '2', h: toggle}
   - {t: '-', s: _}
   - +
+  - +
+  - {t: '-', s: _}
   - '*'
   - {t: /, s: '?'}
-  - {t: '0', s: )}
-  - {t: '-', s: _}
   - {t: '`', s: '~'}
   - Q
   - W
@@ -62,7 +62,7 @@ layers:
   - {t: LAYER0, h: toggle}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:backspace$$', type: backspace}
-  - {t: \, s: '|'}
+  - MENU
   - .
   - {t: '0', s: )}
   '2':
