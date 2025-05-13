@@ -73,8 +73,8 @@ layers:
   - {t: '4', s: $}
   - {t: '5', s: '%'}
   - {t: LAYER0, h: toggle}
-  - HOME
-  - END
+  - $$mdi:backspace-reverse-outline$$
+  - {t: '=', s: +}
   - +
   - {t: '-', s: _}
   - '*'
