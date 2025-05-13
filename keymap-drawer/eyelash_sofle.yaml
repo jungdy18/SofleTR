@@ -112,9 +112,9 @@ layers:
   - V
   - B
   - $$mdi:keyboard-tab$$
-  - N
-  - M
-  - {t: ',', s: <}
+  - COPY
+  - PASTE
+  - CUT
   - '1'
   - '2'
   - '3'
