@@ -147,9 +147,9 @@ layers:
   - {t: '`', s: '~'}
   - Q
   - W
-  - E
+  - $$mdi:pan-up$$
   - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
-  - T
+  - $$mdi:pan-down$$
   - {t: LAYER0, h: toggle}
   - PgUp
   - $$mdi:arrow-up-bold$$
@@ -173,9 +173,9 @@ layers:
   - $$mdi:apple-keyboard-control$$
   - Z
   - X
-  - C
+  - $$mdi:pan-left$$
   - V
-  - B
+  - $$mdi:pan-right$$
   - $$mdi:keyboard-tab$$
   - COPY
   - PASTE
