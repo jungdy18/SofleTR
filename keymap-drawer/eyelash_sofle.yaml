@@ -56,7 +56,7 @@ layers:
   - $$mdi:mouse-scroll-wheel$$
   - $$mdi:apple-keyboard-command$$
   - $$mdi:apple-keyboard-option$$
-  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:apple-keyboard-option$$
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:keyboard-space$$
   - {t: LAYER0, h: toggle}
@@ -128,5 +128,5 @@ layers:
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:backspace$$', type: backspace}
   - {t: \, s: '|'}
-  - {t: '[', s: '{'}
+  - .
   - '0'
