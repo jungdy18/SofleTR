@@ -54,7 +54,7 @@
         layer_1 {
             display-name = "LAYER1";
             bindings = <
-&kp ESC         &kp N1        &kp N2        &kp N3      &kp N4   &kp N5       &to 0    &kp HOME     &kp END         &kp PLUS       &kp MINUS     &kp ASTERISK  &kp SLASH
+&kp ESC         &kp N1        &kp N2        &kp N3      &kp N4   &kp N5       &to 0    &kp DEL      &kp EQUAL       &kp PLUS       &kp MINUS     &kp ASTERISK  &kp SLASH
 &kp GRAVE       &kp Q         &kp W         &kp E       &kp R    &kp T        &to 0    &kp PAGE_UP  &kp UP_ARROW    &kp PAGE_DOWN  &kp N7        &kp N8        &kp N9
 &kp LEFT_SHIFT  &kp A         &kp S         &kp D       &kp F    &kp G        &to 1    &kp LEFT     &kp DOWN_ARROW  &kp RIGHT      &kp NUMBER_4  &kp N5        &kp NUMBER_6
 &kp LCTRL       &kp Z         &kp X         &kp C       &kp V    &kp B        &kp TAB  &kp K_COPY   &kp K_PASTE     &kp K_CUT      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3
