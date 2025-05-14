@@ -134,9 +134,9 @@ layers:
   - $$mdi:keyboard-esc$$
   - {t: '1', s: '!'}
   - {t: '2', s: '@'}
-  - {t: '3', s: '#'}
-  - {t: '4', s: $}
-  - {t: '5', s: '%'}
+  - BACK
+  - PLAY PAUSE
+  - FORWARD
   - {t: LAYER2, h: toggle}
   - $$mdi:backspace-reverse-outline$$
   - {t: '=', s: +}
@@ -183,7 +183,7 @@ layers:
   - '1'
   - '2'
   - '3'
-  - $$mdi:mouse-scroll-wheel$$
+  - MUTE
   - $$mdi:apple-keyboard-command$$
   - $$mdi:apple-keyboard-option$$
   - MENU
