@@ -196,9 +196,9 @@ layers:
   - .
   - {t: '0', s: )}
   LAYER3:
-  - $$mdi:keyboard-esc$$
-  - {t: '1', s: '!'}
-  - {t: '2', s: '@'}
+  - '&soft_off'
+  - BT CLR ALL
+  - {t: '$$mdi:transfer$$', type: trans}
   - BACK
   - PLAY PAUSE
   - FORWARD
@@ -209,9 +209,9 @@ layers:
   - {t: '-', s: _}
   - '*'
   - {t: /, s: '?'}
-  - {t: '`', s: '~'}
-  - Q
-  - W
+  - {h: '$$mdi:arrow-up-bold$$', s: '$$mdi:bluetooth-connect$$'}
+  - {h: '$$mdi:arrow-down-bold$$', s: '$$mdi:bluetooth-connect$$'}
+  - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:pan-up$$
   - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
   - $$mdi:pan-down$$
@@ -223,8 +223,8 @@ layers:
   - {t: '8', s: '*'}
   - {t: '9', s: (}
   - $$mdi:apple-keyboard-shift$$
-  - A
-  - S
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
   - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
   - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
@@ -236,8 +236,8 @@ layers:
   - {t: '5', s: '%'}
   - '6'
   - $$mdi:apple-keyboard-control$$
-  - Z
-  - X
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:pan-left$$
   - V
   - $$mdi:pan-right$$
