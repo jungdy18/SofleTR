@@ -197,7 +197,7 @@ layers:
   - {t: '0', s: )}
   LAYER3:
   - '&soft_off'
-  - BT CLR ALL
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - BACK
   - PLAY PAUSE
@@ -209,8 +209,8 @@ layers:
   - {t: '-', s: _}
   - '*'
   - {t: /, s: '?'}
-  - {h: '$$mdi:arrow-up-bold$$', s: '$$mdi:bluetooth-connect$$'}
-  - {h: '$$mdi:arrow-down-bold$$', s: '$$mdi:bluetooth-connect$$'}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:pan-up$$
   - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
