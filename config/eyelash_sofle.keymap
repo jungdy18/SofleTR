@@ -94,10 +94,10 @@
 &bt BT_PRV      &bt BT_NXT      &trans      &msc SCRL_UP    &mmv MOVE_UP      &msc SCRL_DOWN     &to 3    &kp PAGE_UP  &kp UP_ARROW    &kp PAGE_DOWN  &kp N7        &kp N8        &kp N9
 &kp LEFT_SHIFT  &trans          &trans      &mmv MOVE_LEFT  &mmv MOVE_DOWN    &mmv MOVE_RIGHT    &to 1    &kp LEFT     &kp DOWN_ARROW  &kp RIGHT      &kp NUMBER_4  &kp N5        &kp NUMBER_6
 &kp LCTRL       &trans          &trans      &msc SCRL_LEFT  &trans            &msc SCRL_RIGHT    &kp TAB  &kp K_COPY   &kp K_PASTE     &kp K_CUT      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3
-&kp K_MUTE      &kp LEFT_GUI    &kp K_MENU  &kp LEFT_ALT    &kp DEL           &kp SPACE          &to 0    &mkp LCLK    &mkp RCLK       &mkp MCLK      &kp PERIOD    &kp N0
+&mkp MCLK       &kp LEFT_GUI    &kp K_MENU  &kp LEFT_ALT    &kp DEL           &kp SPACE          &to 0    &mkp LCLK    &mkp RCLK       &mkp MCLK      &kp PERIOD    &kp N0
             >;
 
-            sensor-bindings = <&inc_dec_kp K_VOL_UP K_VOLUME_DOWN>;
+            sensor-bindings = <&scroll_encoder>;
         };
     };
 };
