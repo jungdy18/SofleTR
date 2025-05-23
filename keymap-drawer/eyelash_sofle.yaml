@@ -14,7 +14,7 @@ layers:
   - {t: '9', s: (}
   - {t: '0', s: )}
   - {t: '-', s: _}
-  - {t: '`', s: '~'}
+  - $$mdi:keyboard-tab$$
   - Q
   - W
   - E
@@ -26,7 +26,7 @@ layers:
   - I
   - O
   - P
-  - {t: '=', s: +}
+  - {t: '`', s: '~'}
   - $$mdi:apple-keyboard-shift$$
   - A
   - S
@@ -55,8 +55,8 @@ layers:
   - {t: \, s: '|'}
   - $$mdi:mouse-scroll-wheel$$
   - $$mdi:apple-keyboard-command$$
-  - $$mdi:apple-keyboard-option$$
   - MENU
+  - $$mdi:apple-keyboard-option$$
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:keyboard-space$$
   - {t: LAYER0, h: toggle}
@@ -79,7 +79,7 @@ layers:
   - {t: '-', s: _}
   - '*'
   - {t: /, s: '?'}
-  - {t: '`', s: '~'}
+  - $$mdi:keyboard-tab$$
   - Q
   - W
   - E
@@ -120,8 +120,8 @@ layers:
   - '3'
   - $$mdi:mouse-scroll-wheel$$
   - $$mdi:apple-keyboard-command$$
-  - $$mdi:apple-keyboard-option$$
   - MENU
+  - $$mdi:apple-keyboard-option$$
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:keyboard-space$$
   - {t: LAYER0, h: toggle}
@@ -144,7 +144,7 @@ layers:
   - {t: '-', s: _}
   - '*'
   - {t: /, s: '?'}
-  - {t: '`', s: '~'}
+  - $$mdi:keyboard-tab$$
   - Q
   - W
   - E
@@ -185,8 +185,8 @@ layers:
   - '3'
   - $$mdi:mouse-scroll-wheel$$
   - $$mdi:apple-keyboard-command$$
-  - $$mdi:apple-keyboard-option$$
   - MENU
+  - $$mdi:apple-keyboard-option$$
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:keyboard-space$$
   - {t: LAYER0, h: toggle}
@@ -250,8 +250,8 @@ layers:
   - '3'
   - MUTE
   - $$mdi:apple-keyboard-command$$
-  - $$mdi:apple-keyboard-option$$
   - MENU
+  - $$mdi:apple-keyboard-option$$
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:keyboard-space$$
   - {t: LAYER0, h: toggle}
