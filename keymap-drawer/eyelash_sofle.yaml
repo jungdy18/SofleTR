@@ -132,18 +132,18 @@ layers:
   - {t: '0', s: )}
   LAYER2:
   - $$mdi:keyboard-esc$$
-  - {t: '1', s: '!'}
-  - {t: '2', s: '@'}
-  - {t: '3', s: '#'}
-  - {t: '4', s: $}
-  - {t: '5', s: '%'}
+  - F1
+  - F2
+  - F3
+  - F4
+  - F5
   - {t: LAYER2, h: toggle}
-  - $$mdi:backspace-reverse-outline$$
-  - {t: '=', s: +}
-  - +
-  - {t: '-', s: _}
-  - '*'
-  - {t: /, s: '?'}
+  - F6
+  - F7
+  - F8
+  - F9
+  - F10
+  - F11
   - $$mdi:keyboard-tab$$
   - Q
   - W
