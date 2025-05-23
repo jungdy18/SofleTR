@@ -248,7 +248,7 @@ layers:
   - '1'
   - '2'
   - '3'
-  - MUTE
+  - $$mdi:mouse-scroll-wheel$$
   - $$mdi:apple-keyboard-command$$
   - MENU
   - $$mdi:apple-keyboard-option$$
