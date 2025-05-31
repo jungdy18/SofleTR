@@ -55,7 +55,7 @@ layers:
   - {t: \, s: '|'}
   - $$mdi:mouse-scroll-wheel$$
   - $$mdi:apple-keyboard-command$$
-  - MENU
+  - {t: LAYER3, h: toggle}
   - $$mdi:apple-keyboard-option$$
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:keyboard-space$$
@@ -120,7 +120,7 @@ layers:
   - '3'
   - $$mdi:mouse-scroll-wheel$$
   - $$mdi:apple-keyboard-command$$
-  - MENU
+  - {t: LAYER0, h: toggle}
   - $$mdi:apple-keyboard-option$$
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:keyboard-space$$
@@ -185,7 +185,7 @@ layers:
   - '3'
   - $$mdi:mouse-scroll-wheel$$
   - $$mdi:apple-keyboard-command$$
-  - MENU
+  - {t: LAYER0, h: toggle}
   - $$mdi:apple-keyboard-option$$
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:keyboard-space$$
@@ -210,7 +210,7 @@ layers:
   - '*'
   - {t: /, s: '?'}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:arrow-up-bold$$
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:pan-up$$
   - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
@@ -222,9 +222,9 @@ layers:
   - {t: '7', s: '&'}
   - {t: '8', s: '*'}
   - {t: '9', s: (}
-  - $$mdi:apple-keyboard-shift$$
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:arrow-left-bold$$
+  - $$mdi:arrow-down-bold$$
+  - $$mdi:arrow-right-bold$$
   - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
   - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
   - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
@@ -250,10 +250,10 @@ layers:
   - '3'
   - $$mdi:mouse-scroll-wheel$$
   - $$mdi:apple-keyboard-command$$
-  - MENU
+  - {t: LAYER0, h: toggle}
   - $$mdi:apple-keyboard-option$$
-  - $$mdi:backspace-reverse-outline$$
-  - $$mdi:keyboard-space$$
+  - $$mdi:mouse-right-click-outline$$
+  - $$mdi:mouse-left-click-outline$$
   - {t: LAYER0, h: toggle}
   - $$mdi:mouse-left-click-outline$$
   - $$mdi:mouse-right-click-outline$$
