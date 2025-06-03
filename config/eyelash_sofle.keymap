@@ -53,7 +53,7 @@
 &kp TAB         &kp Q         &kp W   &kp E         &kp R    &kp T        &to 3    &kp Y    &kp U          &kp I      &kp O             &kp P              &kp GRAVE
 &kp LEFT_SHIFT  &kp A         &kp S   &kp D         &kp F    &kp G        &to 1    &kp H    &kp J          &kp K      &kp L             &kp SEMI           &kp APOS
 &kp LCTRL       &kp Z         &kp X   &kp C         &kp V    &kp B        &kp TAB  &kp N    &kp M          &kp COMMA  &kp DOT           &kp FSLH           &kp BACKSLASH
-&mkp MCLK       &kp LEFT_GUI  &to 3   &kp LEFT_ALT  &kp DEL  &kp SPACE    &to 0    &kp RET  &kp BACKSPACE  &kp RALT   &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+&mkp MCLK       &kp LEFT_GUI  &mo 3   &kp LEFT_ALT  &kp DEL  &kp SPACE    &to 0    &kp RET  &kp BACKSPACE  &kp RALT   &kp LEFT_BRACKET  &kp RIGHT_BRACKET
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -93,7 +93,7 @@
 &trans     &kp UP        &trans     &msc SCRL_UP    &mmv MOVE_UP      &msc SCRL_DOWN     &to 3    &kp PAGE_UP  &kp UP_ARROW    &kp PAGE_DOWN  &kp N7        &kp N8        &kp N9
 &kp LEFT   &kp DOWN      &kp RIGHT  &mmv MOVE_LEFT  &mmv MOVE_DOWN    &mmv MOVE_RIGHT    &to 1    &kp LEFT     &kp DOWN_ARROW  &kp RIGHT      &kp NUMBER_4  &kp N5        &kp NUMBER_6
 &kp LCTRL  &trans        &trans     &msc SCRL_LEFT  &trans            &msc SCRL_RIGHT    &kp TAB  &kp K_COPY   &kp K_PASTE     &kp K_CUT      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3
-&mkp MCLK  &kp LEFT_GUI  &to 0      &kp LEFT_ALT    &mkp RCLK         &mkp LCLK          &to 0    &mkp LCLK    &mkp RCLK       &mkp MCLK      &kp PERIOD    &kp N0
+&mkp MCLK  &kp LEFT_GUI  &trans     &kp LEFT_ALT    &mkp RCLK         &mkp LCLK          &to 0    &mkp LCLK    &mkp RCLK       &mkp MCLK      &kp PERIOD    &kp N0
             >;
 
             sensor-bindings = <&scroll_encoder>;
