@@ -588,8 +588,7 @@ rect.held, rect.combo.held {
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
 <a href="#LAYER3">
 <text x="0" y="-4" class="key tap layer-activator">LAYER3</text>
-</a><text x="0" y="24" class="key hold">toggle</text>
-</g>
+</a></g>
 <g transform="translate(252, 259)" class="key keypos-55">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
@@ -1621,12 +1620,9 @@ rect.held, rect.combo.held {
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
 <use href="#mdi:apple-keyboard-command" xlink:href="#mdi:apple-keyboard-command" x="-9" y="-13" height="18" width="18.0" class="key tap glyph mdi:apple-keyboard-command"/>
 </g>
-<g transform="translate(196, 252)" class="key keypos-54">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
-<rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
-<a href="#LAYER0">
-<text x="0" y="-4" class="key tap layer-activator">LAYER0</text>
-</a><text x="0" y="24" class="key hold">toggle</text>
+<g transform="translate(196, 252)" class="key held keypos-54">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held side"/>
+<rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key held"/>
 </g>
 <g transform="translate(252, 259)" class="key keypos-55">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>

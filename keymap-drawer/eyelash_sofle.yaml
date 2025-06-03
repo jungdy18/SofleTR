@@ -55,7 +55,7 @@ layers:
   - {t: \, s: '|'}
   - $$mdi:mouse-scroll-wheel$$
   - $$mdi:apple-keyboard-command$$
-  - {t: LAYER3, h: toggle}
+  - LAYER3
   - $$mdi:apple-keyboard-option$$
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:keyboard-space$$
@@ -250,7 +250,7 @@ layers:
   - '3'
   - $$mdi:mouse-scroll-wheel$$
   - $$mdi:apple-keyboard-command$$
-  - {t: LAYER0, h: toggle}
+  - {type: held}
   - $$mdi:apple-keyboard-option$$
   - $$mdi:mouse-right-click-outline$$
   - $$mdi:mouse-left-click-outline$$
