@@ -120,7 +120,7 @@ layers:
   - '3'
   - $$mdi:mouse-scroll-wheel$$
   - $$mdi:apple-keyboard-command$$
-  - {t: LAYER0, h: toggle}
+  - LAYER3
   - $$mdi:apple-keyboard-option$$
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:keyboard-space$$
@@ -185,7 +185,7 @@ layers:
   - '3'
   - $$mdi:mouse-scroll-wheel$$
   - $$mdi:apple-keyboard-command$$
-  - {t: LAYER0, h: toggle}
+  - LAYER3
   - $$mdi:apple-keyboard-option$$
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:keyboard-space$$
@@ -219,9 +219,9 @@ layers:
   - PgUp
   - $$mdi:arrow-up-bold$$
   - PgDn
-  - {t: '7', s: '&'}
-  - {t: '8', s: '*'}
-  - {t: '9', s: (}
+  - $$mdi:pan-up$$
+  - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
+  - $$mdi:pan-down$$
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
   - $$mdi:arrow-right-bold$$
@@ -232,9 +232,9 @@ layers:
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
   - $$mdi:arrow-right-bold$$
-  - '4'
-  - {t: '5', s: '%'}
-  - '6'
+  - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
   - $$mdi:apple-keyboard-control$$
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -245,9 +245,9 @@ layers:
   - COPY
   - PASTE
   - CUT
-  - '1'
-  - '2'
-  - '3'
+  - $$mdi:pan-left$$
+  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:pan-right$$
   - $$mdi:mouse-scroll-wheel$$
   - $$mdi:apple-keyboard-command$$
   - {type: held}
