@@ -54,8 +54,8 @@ layers:
   - {t: /, s: '?'}
   - {t: \, s: '|'}
   - $$mdi:mouse-scroll-wheel$$
-  - $$mdi:apple-keyboard-command$$
   - LAYER3
+  - LEFT WIN
   - $$mdi:apple-keyboard-option$$
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:keyboard-space$$
@@ -119,8 +119,8 @@ layers:
   - '2'
   - '3'
   - $$mdi:mouse-scroll-wheel$$
-  - $$mdi:apple-keyboard-command$$
   - LAYER3
+  - LEFT WIN
   - $$mdi:apple-keyboard-option$$
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:keyboard-space$$
@@ -184,8 +184,8 @@ layers:
   - '2'
   - '3'
   - $$mdi:mouse-scroll-wheel$$
-  - $$mdi:apple-keyboard-command$$
   - LAYER3
+  - LEFT WIN
   - $$mdi:apple-keyboard-option$$
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:keyboard-space$$
@@ -249,8 +249,8 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:pan-right$$
   - $$mdi:mouse-scroll-wheel$$
-  - $$mdi:apple-keyboard-command$$
   - {type: held}
+  - LEFT WIN
   - $$mdi:apple-keyboard-option$$
   - $$mdi:mouse-right-click-outline$$
   - $$mdi:mouse-left-click-outline$$
