@@ -14,7 +14,7 @@ manifest:
       revision: refactor
     - name: mario-peripheral-animation
       remote: gpeye
-      revision: v0.2
+      revision: v0.3
     - name: zmk
       remote: zmkfirmware
       revision: main
