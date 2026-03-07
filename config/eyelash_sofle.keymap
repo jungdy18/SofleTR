@@ -1,90 +1,34 @@
 /*
  * ╔══════════════════════════════════════════════════════════════════════════════╗
- * ║  Eyelash Sofle — 최적화 ZMK Keymap v2                                      ║
- * ║  용도: 코딩 / 게임 / 문서 작성                                              ║
+ * ║  Eyelash Sofle — 최적화 ZMK Keymap v4                                      ║
+ * ║  용도: 코딩 / 게임 / 문서 작성 / 한국어 입력                               ║
+ * ╠══════════════════════════════════════════════════════════════════════════════╣
+ * ║  BASE 배열: QWERTY (한국어 두벌식 IME 완전 호환)                           ║
+ * ╠══════════════════════════════════════════════════════════════════════════════╣
+ * ║  OverKeys 레이어 신호 설계                                                  ║
+ * ║                                                                              ║
+ * ║  각 레이어에 진입 F키(ON)와 퇴장 F키(OFF)를 분리 할당합니다.               ║
+ * ║  같은 키로 toggle on/off를 반복하면 OS의 keyrepeat 처리나                  ║
+ * ║  OverKeys의 상태 비동기화 문제가 생기므로 분리 방식을 사용합니다.          ║
+ * ║                                                                              ║
+ * ║  레이어  │ 진입(ON) │ 퇴장(OFF) │ OverKeys trigger │ type                  ║
+ * ║  ────────┼──────────┼───────────┼──────────────────┼────────               ║
+ * ║  BASE(0) │  (없음)  │  (없음)   │ defaultUserLayout │  —                   ║
+ * ║  SYMBOL  │   F17    │   F18     │ F17              │ toggle                ║
+ * ║  NAV     │   F19    │   F20     │ F19              │ toggle                ║
+ * ║  NUMPAD  │   F21    │   F22     │ F21              │ toggle                ║
+ * ║  MOUSE   │   F23    │   F24     │ F23              │ toggle                ║
+ * ║                                                                              ║
+ * ║  매크로 네이밍: from{출발}_to{목적}                                         ║
+ * ║    출발=0(BASE): 퇴장F키 없음                                               ║
+ * ║    출발≥1:       현재레이어 퇴장F키(OFF) 먼저 전송                         ║
+ * ║    목적=0(BASE): 진입F키 없음 → OverKeys가 BASE로 자동 복귀                ║
+ * ║    목적≥1:       새레이어 진입F키(ON) 전송                                  ║
+ * ╠══════════════════════════════════════════════════════════════════════════════╣
+ * ║  한국어 입력                                                                 ║
+ * ║  QWERTY BASE + Windows 두벌식 IME → LANG1(왼 엄지)로 한/영 전환           ║
+ * ║  QWERTY 키코드를 그대로 전송하므로 두벌식 자소 배치 정상 동작              ║
  * ╚══════════════════════════════════════════════════════════════════════════════╝
- *
- * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- *  물리 레이아웃 (원본 Eyelash Sofle 그대로)
- *
- *  ┌─────┬─────┬─────┬─────┬─────┬─────┐[5way]┌─────┬─────┬─────┬─────┬─────┬─────┐
- *  │col0 │col1 │col2 │col3 │col4 │col5 │ col6 │col7 │col8 │col9 │col10│col11│col12│ ← Row0 (숫자행)
- *  │col0 │col1 │col2 │col3 │col4 │col5 │ col6 │col7 │col8 │col9 │col10│col11│col12│ ← Row1 (상단행)
- *  │col0 │col1 │col2 │col3 │col4 │col5 │ col6 │col7 │col8 │col9 │col10│col11│col12│ ← Row2 (홈행)
- *  │col0 │col1 │col2 │col3 │col4 │col5 │ col6 │col7 │col8 │col9 │col10│col11│col12│ ← Row3 (하단행)
- *  │col0 │col1 │col2 │col3 │col4 │col5 │ col6 │col7 │col8 │col9 │col10│col11│      ← Row4 (엄지행, 12키)
- *  └─────┴─────┴─────┴─────┴─────┴─────┘      └─────┴─────┴─────┴─────┴─────┘
- *       왼손 6열              5way              오른손 5열 (엄지행만)
- *
- *  총 64키 = 13×4행 + 12(엄지행)
- *  5-way key = col6 (중앙 컬럼), 오른쪽 엄지 근처
- *
- * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- *  레이어 구성
- *
- *  Layer 0: BASE    — Colemak-DH 알파벳 + 숫자
- *  Layer 1: SYMBOL  — 기호/특수문자 (코딩 최적화)
- *  Layer 2: NAV     — 방향키 / 함수키 / 편집
- *  Layer 3: NUMPAD  — 숫자패드 (한 손 조작 가능)
- *  Layer 4: MOUSE   — 마우스 / 미디어 / BT
- *
- * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- *  5-way key (col6) 배치 전략
- *
- *  Row0: to2_sig → NAV 레이어  (F키/방향키 자주 필요)
- *  Row1: to3_sig → NUMPAD 레이어
- *  Row2: to1_sig → SYMBOL 레이어 (★ 가장 자주 전환)
- *  Row3: mo 4    → MOUSE 레이어 (누르는 동안만)
- *  Row4: to0_sig → BASE 귀환   (어느 레이어에서도 복귀)
- *
- *  실제 5-way 물리 버튼 매핑 권장:
- *    중앙 press = to1_sig (SYMBOL, 가장 빈번)
- *    위  = to2_sig (NAV)
- *    아래 = to0_sig (BASE 귀환)
- *    좌  = to3_sig (NUMPAD)
- *    우  = mo 4   (MOUSE)
- *
- * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- *  NohBoard 연동
- *
- *  레이어 전환 매크로가 F16~F20을 함께 전송 → NohBoard가 현재 레이어 인식
- *  F16~F20은 Windows/macOS 표준 앱에 바인딩 없음 → 타이핑/게임 무영향
- *
- * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- *  설계 근거 요약
- *
- *  [1] Colemak-DH 선택
- *      - 홈행 타이핑 비율 74% (QWERTY 32%)
- *      - D/H 키가 인덱스 내측 스트레치 대신 아래행 자연스러운 컬 위치
- *      - columnar-stagger Sofle 구조와 최고 궁합
- *      - Z/X/C/V 위치 유지 → Ctrl+Z/X/C/V 코딩/게임 단축키 그대로
- *
- *  [2] QWERTY → Colemak-DH 변경점
- *      변경: E→F, R→P, T→B, Y→J, U→L, I→U, O→Y, P→; (상단행)
- *            S→R, D→S, F→T, G→G, H→M, J→N, K→E, L→I, ;→O (홈행)
- *            기타 위치 이동
- *      유지: A, Z, X, C, V, B, Q, W 위치 그대로
- *
- *  [3] 수식어 키 배치
- *      - LSHIFT: 왼손 홈행 최좌측 (원본 유지, Shift 접근 최우선)
- *      - LCTRL:  왼손 하단행 최좌측 (Ctrl+Z/X/C/V, 게임)
- *      - LGUI:   왼 엄지 3번째 (Win키, 덜 빈번하므로 안쪽)
- *      - LALT:   왼 엄지 4번째 (게임 Alt 사용 시)
- *      - RALT:   오른 엄지 3번째 (AltGr, 특수문자)
- *
- *  [4] 한 손 조작 (Layer 3 NUMPAD)
- *      왼손만으로 7-8-9 / 4-5-6 / 1-2-3 / 0 완성
- *      오른손에도 동일 배열 미러 → 어느 손이든 독립 사용
- *
- *  [5] 게임 친화성
- *      - Layer 0에서 WASD 인접에 Shift/Ctrl/Alt 모두 배치
- *      - 숫자키 1~5 왼손 접근 유지
- *      - 레이어 전환 없이 Layer 0만으로 게임 완결
- *      - mo 4 (MOUSE) 누르는 동안만 활성 → 게임 중 실수 방지
- *
- *  [6] 인코더 배치
- *      Layer 0~2: 수직 스크롤 (일반 사용)
- *      Layer 3~4: 수평 스크롤 (스프레드시트, 가로 편집, 마우스 모드)
  */
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1200
@@ -136,79 +80,108 @@ horiz_scroll: horiz_scroll {
 behaviors {
 
     /*
-     * OverKeys 레이어 전환 매크로 설계
-     * ─────────────────────────────────────────────────────────────
-     * OverKeys의 trigger+toggle 방식은 F키를 홀수번 받으면 ON,
-     * 짝수번 받으면 OFF 상태가 됩니다.
-     * 레이어 전환 시 이전 레이어의 toggle 상태를 모르기 때문에,
-     * 매크로마다 F17~F20을 각 2번씩 전송해 모든 레이어를 OFF로
-     * 초기화한 다음, 원하는 레이어 F키를 1번만 전송해 ON으로
-     * 만드는 방식을 사용합니다.
+     * OverKeys 레이어 전환 매크로
      *
-     * BASE(to0): 리셋만 하고 아무 레이어도 ON 하지 않음
-     *   → OverKeys가 defaultUserLayout(BASE)으로 자동 복귀
+     * 네이밍 규칙: from{출발레이어번호}_to{목적레이어번호}
+     *   출발레이어 = 0(BASE): 퇴장 F키 없음
+     *   출발레이어 ≥ 1:       현재 레이어 퇴장 F키 먼저 전송(OFF)
+     *   목적레이어 = 0(BASE): 진입 F키 없음 (퇴장F키만으로 OverKeys BASE 복귀)
+     *   목적레이어 ≥ 1:       새 레이어 진입 F키 전송(ON)
      *
-     * F키 범위 F17~F20: 일반 앱/게임 단축키 충돌 없는 안전 범위
-     * ─────────────────────────────────────────────────────────────
+     * F키 할당:
+     *   Layer1(SYMBOL): 진입=F17, 퇴장=F18
+     *   Layer2(NAV):    진입=F19, 퇴장=F20
+     *   Layer3(NUMPAD): 진입=F21, 퇴장=F22
+     *   Layer4(MOUSE):  진입=F23, 퇴장=F24
      */
 
-    /* BASE 귀환: 모든 레이어 toggle OFF → OverKeys가 BASE 표시 */
-    to0_sig: to0_sig {
+    /* BASE → SYMBOL */
+    from0_to1: from0_to1 {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
-        bindings = <&to 0>
-                 , <&kp F17>, <&kp F17>   /* Layer1 toggle: on→off */
-                 , <&kp F18>, <&kp F18>   /* Layer2 toggle: on→off */
-                 , <&kp F19>, <&kp F19>   /* Layer3 toggle: on→off */
-                 , <&kp F20>, <&kp F20>;  /* Layer4 toggle: on→off */
+        bindings = <&to 1>, <&kp F17>;
+    };
+    /* BASE → NAV */
+    from0_to2: from0_to2 {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&to 2>, <&kp F19>;
+    };
+    /* BASE → NUMPAD */
+    from0_to3: from0_to3 {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&to 3>, <&kp F21>;
+    };
+    /* BASE → MOUSE */
+    from0_to4: from0_to4 {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&to 4>, <&kp F23>;
     };
 
-    /* SYMBOL 전환: 전체 리셋 후 F17 ON */
-    to1_sig: to1_sig {
+    /* SYMBOL → BASE */
+    from1_to0: from1_to0 {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
-        bindings = <&to 1>
-                 , <&kp F17>, <&kp F17>   /* 리셋 */
-                 , <&kp F18>, <&kp F18>
-                 , <&kp F19>, <&kp F19>
-                 , <&kp F20>, <&kp F20>
-                 , <&kp F17>;             /* Layer1 ON */
+        bindings = <&to 0>, <&kp F18>;        /* F18: SYMBOL OFF */
+    };
+    /* SYMBOL → NAV */
+    from1_to2: from1_to2 {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&to 2>, <&kp F18>, <&kp F19>;
+    };
+    /* SYMBOL → NUMPAD */
+    from1_to3: from1_to3 {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&to 3>, <&kp F18>, <&kp F21>;
     };
 
-    /* NAV 전환: 전체 리셋 후 F18 ON */
-    to2_sig: to2_sig {
+    /* NAV → BASE */
+    from2_to0: from2_to0 {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
-        bindings = <&to 2>
-                 , <&kp F17>, <&kp F17>
-                 , <&kp F18>, <&kp F18>
-                 , <&kp F19>, <&kp F19>
-                 , <&kp F20>, <&kp F20>
-                 , <&kp F18>;             /* Layer2 ON */
+        bindings = <&to 0>, <&kp F20>;        /* F20: NAV OFF */
+    };
+    /* NAV → SYMBOL */
+    from2_to1: from2_to1 {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&to 1>, <&kp F20>, <&kp F17>;
+    };
+    /* NAV → NUMPAD */
+    from2_to3: from2_to3 {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&to 3>, <&kp F20>, <&kp F21>;
     };
 
-    /* NUMPAD 전환: 전체 리셋 후 F19 ON */
-    to3_sig: to3_sig {
+    /* NUMPAD → BASE */
+    from3_to0: from3_to0 {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
-        bindings = <&to 3>
-                 , <&kp F17>, <&kp F17>
-                 , <&kp F18>, <&kp F18>
-                 , <&kp F19>, <&kp F19>
-                 , <&kp F20>, <&kp F20>
-                 , <&kp F19>;             /* Layer3 ON */
+        bindings = <&to 0>, <&kp F22>;        /* F22: NUMPAD OFF */
+    };
+    /* NUMPAD → SYMBOL */
+    from3_to1: from3_to1 {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&to 1>, <&kp F22>, <&kp F17>;
+    };
+    /* NUMPAD → NAV */
+    from3_to2: from3_to2 {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&to 2>, <&kp F22>, <&kp F19>;
     };
 
-    /* MOUSE 전환: 전체 리셋 후 F20 ON */
-    to4_sig: to4_sig {
+    /* MOUSE → BASE */
+    from4_to0: from4_to0 {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
-        bindings = <&to 4>
-                 , <&kp F17>, <&kp F17>
-                 , <&kp F18>, <&kp F18>
-                 , <&kp F19>, <&kp F19>
-                 , <&kp F20>, <&kp F20>
-                 , <&kp F20>;             /* Layer4 ON */
+        bindings = <&to 0>, <&kp F24>;        /* F24: MOUSE OFF */
     };
 
 };
@@ -219,41 +192,39 @@ keymap {
     compatible = "zmk,keymap";
 
 /* ══════════════════════════════════════════════════════════════════
- *  LAYER 0 — BASE (Colemak-DH)
+ *  LAYER 0 — BASE (QWERTY)
  * ══════════════════════════════════════════════════════════════════
  *
  *  ┌──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┐
- *  │ ESC  │  1   │  2   │  3   │  4   │  5   │[to2] │  6   │  7   │  8   │  9   │  0   │  -   │
+ *  │ ESC  │  1   │  2   │  3   │  4   │  5   │[NAV] │  6   │  7   │  8   │  9   │  0   │  -   │
  *  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- *  │ TAB  │  Q   │  W   │  F   │  P   │  B   │[to3] │  J   │  L   │  U   │  Y   │  ;   │  =   │
+ *  │ TAB  │  Q   │  W   │  E   │  R   │  T   │[NUM] │  Y   │  U   │  I   │  O   │  P   │  =   │
  *  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- *  │ SHFT │  A   │  R   │  S   │  T   │  G   │[to1] │  M   │  N   │  E   │  I   │  O   │  '   │
+ *  │ SHFT │  A   │  S   │  D   │  F   │  G   │[SYM] │  H   │  J   │  K   │  L   │  ;   │  '   │
  *  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- *  │ CTRL │  Z   │  X   │  C   │  D   │  V   │[mo4] │  K   │  H   │  ,   │  .   │  /   │  \   │
+ *  │ CTRL │  Z   │  X   │  C   │  V   │  B   │[MSE] │  N   │  M   │  ,   │  .   │  /   │  \   │
  *  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┘
- *  │ MCLK │ mo3  │ LGUI │ LALT │ DEL  │ SPC  │[to0] │ ENT  │ BSPC │ RALT │  [   │  ]   │
+ *  │ MCLK │한/영 │ LGUI │ LALT │ DEL  │ SPC  │      │ ENT  │ BSPC │ RALT │  [   │  ]   │
  *  └──────┴──────┴──────┴──────┴──────┴──────┘      └──────┴──────┴──────┴──────┴──────┘
  *
- *  변경 사항 (원본 QWERTY 대비):
- *    상단행: Q W [F P B] [J L U Y ;] =  ← E/R/T→F/P/B, Y/U/I/O/P→J/L/U/Y/;
- *    홈행:   [A R S T G] [M N E I O] '  ← S/D/F→R/S/T, H/J/K/L→M/N/E/I/O
- *    하단행: [Z X C D V] [K H , . /] \  ← V→D/B→V, N/M→K/H
- *    엄지행: DEL 유지, [ ] 오른 엄지 유지
+ *  ★ 한/영 전환 (LANG1): 왼 엄지 2번째
+ *    Windows: 한국어 IME가 QWERTY 키코드 기준으로 두벌식 자소를 배치하므로
+ *    QWERTY BASE에서 LANG1로 한/영 전환하면 정상 입력됩니다.
  */
     layer0 {
         display-name = "BASE";
         bindings = <
-&kp ESC       &kp N1  &kp N2       &kp N3       &kp N4   &kp N5      &to2_sig  &kp N6   &kp N7     &kp N8     &kp N9         &kp N0         &kp MINUS
-&kp TAB       &kp Q   &kp W        &kp F        &kp P    &kp B       &to3_sig  &kp J    &kp L      &kp U      &kp Y          &kp SEMI       &kp EQUAL
-&kp LSHFT     &kp A   &kp R        &kp S        &kp T    &kp G       &to1_sig  &kp M    &kp N      &kp E      &kp I          &kp O          &kp APOS
-&kp LCTRL     &kp Z   &kp X        &kp C        &kp D    &kp V       &mo 4     &kp K    &kp H      &kp COMMA  &kp DOT        &kp FSLH       &kp BSLH
-&mkp MCLK     &mo 3   &kp LGUI     &kp LALT     &kp DEL  &kp SPACE   &to0_sig  &kp RET  &kp BSPC   &kp RALT   &kp LBKT       &kp RBKT
+&kp ESC       &kp N1    &kp N2     &kp N3     &kp N4   &kp N5      &from0_to2  &kp N6   &kp N7     &kp N8     &kp N9         &kp N0         &kp MINUS
+&kp TAB       &kp Q     &kp W      &kp E      &kp R    &kp T       &from0_to3  &kp Y    &kp U      &kp I      &kp O          &kp P          &kp EQUAL
+&kp LSHFT     &kp A     &kp S      &kp D      &kp F    &kp G       &from0_to1  &kp H    &kp J      &kp K      &kp L          &kp SEMI       &kp APOS
+&kp LCTRL     &kp Z     &kp X      &kp C      &kp V    &kp B       &mo 4       &kp N    &kp M      &kp COMMA  &kp DOT        &kp FSLH       &kp BSLH
+&mkp MCLK     &kp LANG1 &kp LGUI   &kp LALT   &kp DEL  &kp SPACE   &trans      &kp RET  &kp BSPC   &kp RALT   &kp LBKT       &kp RBKT
         >;
         sensor-bindings = <&scroll_encoder>;
     };
 
 /* ══════════════════════════════════════════════════════════════════
- *  LAYER 1 — SYMBOL (기호/특수문자, 코딩 최적화)
+ *  LAYER 1 — SYMBOL (기호/특수문자)
  * ══════════════════════════════════════════════════════════════════
  *
  *  ┌──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┐
@@ -267,22 +238,15 @@ keymap {
  *  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┘
  *  │      │      │      │      │      │      │[to0] │      │      │      │      │      │
  *  └──────┴──────┴──────┴──────┴──────┴──────┘      └──────┴──────┴──────┴──────┴──────┘
- *
- *  설계 원칙:
- *    숫자행: Shift+숫자 기호 전부 → Shift 없이 바로 입력
- *    상단행: 코딩 필수 기호 (` ~ | < > [ ] { } + -)
- *    홈행:   왼손=방향키 3점세트(Home↑End), 오른손=괄호쌍 + = : ;
- *    하단행: 왼손=방향키 4방향, 오른손=나머지 기호
- *    → 왼손만으로 커서 이동 완결 (한 손 편집 가능)
  */
     layer1 {
         display-name = "SYMBOL";
         bindings = <
-&kp TILDE  &kp EXCL   &kp AT    &kp HASH   &kp DLLR  &kp PRCNT  &to2_sig  &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR   &kp RPAR   &kp UNDER
-&trans     &kp GRAVE  &kp TILDE &kp PIPE   &kp LT    &kp GT     &to3_sig  &kp LBKT   &kp RBKT   &kp LBRC   &kp RBRC   &kp PLUS   &kp MINUS
-&trans     &kp HOME   &kp UP    &kp END    &kp LPAR  &kp RPAR   &to1_sig  &kp LBRC   &kp RBRC   &kp EQUAL  &kp COLON  &kp SEMI   &kp DQT
-&trans     &kp LEFT   &kp DOWN  &kp RIGHT  &kp LBKT  &kp RBKT   &mo 4     &kp BSLH   &kp FSLH   &kp COMMA  &kp DOT    &kp QMARK  &kp PIPE
-&trans     &trans     &trans    &trans     &trans    &trans     &to0_sig  &trans     &trans     &trans     &trans     &trans
+&kp TILDE  &kp EXCL   &kp AT    &kp HASH   &kp DLLR  &kp PRCNT  &from1_to2  &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR   &kp RPAR   &kp UNDER
+&trans     &kp GRAVE  &kp TILDE &kp PIPE   &kp LT    &kp GT     &from1_to3  &kp LBKT   &kp RBKT   &kp LBRC   &kp RBRC   &kp PLUS   &kp MINUS
+&trans     &kp HOME   &kp UP    &kp END    &kp LPAR  &kp RPAR   &trans      &kp LBRC   &kp RBRC   &kp EQUAL  &kp COLON  &kp SEMI   &kp DQT
+&trans     &kp LEFT   &kp DOWN  &kp RIGHT  &kp LBKT  &kp RBKT   &mo 4       &kp BSLH   &kp FSLH   &kp COMMA  &kp DOT    &kp QMARK  &kp PIPE
+&trans     &trans     &trans    &trans     &trans    &trans     &from1_to0  &trans     &trans     &trans     &trans     &trans
         >;
         sensor-bindings = <&scroll_encoder>;
     };
@@ -302,21 +266,15 @@ keymap {
  *  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┘
  *  │      │      │      │      │      │      │[to0] │      │      │      │      │      │
  *  └──────┴──────┴──────┴──────┴──────┴──────┘      └──────┴──────┴──────┴──────┴──────┘
- *
- *  설계 원칙:
- *    왼손: Home/↑/End/PgUp + ←/↓/→/PgDn + 편집 단축키
- *          → 왼손만으로 완전한 텍스트 탐색/편집 가능
- *    오른손: 동일 방향키 미러 (양손 방향키 지원)
- *    F1~F12: 숫자행 위치에 1:1 대응 (직관적)
  */
     layer2 {
         display-name = "NAV";
         bindings = <
-&trans  &kp F1      &kp F2    &kp F3      &kp F4      &kp F5      &to2_sig  &kp F6   &kp F7     &kp F8    &kp F9     &kp F10  &kp F11
-&trans  &kp HOME    &kp UP    &kp END     &kp PG_UP   &trans      &to3_sig  &trans   &kp PG_UP  &kp UP    &kp PG_DN  &trans   &kp F12
-&trans  &kp LEFT    &kp DOWN  &kp RIGHT   &kp PG_DN   &trans      &to1_sig  &trans   &kp LEFT   &kp DOWN  &kp RIGHT  &trans   &trans
-&trans  &kp K_UNDO  &kp K_CUT &kp K_COPY  &kp K_PASTE &kp K_REDO  &mo 4     &trans   &trans     &trans    &trans     &trans   &trans
-&trans  &trans      &trans    &trans      &trans      &trans      &to0_sig  &trans   &trans     &trans    &trans     &trans
+&trans  &kp F1      &kp F2    &kp F3      &kp F4      &kp F5      &trans      &kp F6   &kp F7     &kp F8    &kp F9     &kp F10  &kp F11
+&trans  &kp HOME    &kp UP    &kp END     &kp PG_UP   &trans      &from2_to3  &trans   &kp PG_UP  &kp UP    &kp PG_DN  &trans   &kp F12
+&trans  &kp LEFT    &kp DOWN  &kp RIGHT   &kp PG_DN   &trans      &from2_to1  &trans   &kp LEFT   &kp DOWN  &kp RIGHT  &trans   &trans
+&trans  &kp K_UNDO  &kp K_CUT &kp K_COPY  &kp K_PASTE &kp K_REDO  &mo 4       &trans   &trans     &trans    &trans     &trans   &trans
+&trans  &trans      &trans    &trans      &trans      &trans      &from2_to0  &trans   &trans     &trans    &trans     &trans
         >;
         sensor-bindings = <&scroll_encoder>;
     };
@@ -336,21 +294,15 @@ keymap {
  *  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┘
  *  │      │      │      │      │      │  0   │[to0] │ ENT  │ BSPC │      │      │      │
  *  └──────┴──────┴──────┴──────┴──────┴──────┘      └──────┴──────┴──────┴──────┴──────┘
- *
- *  설계 원칙:
- *    왼손 단독: 7-8-9 / 4-5-6 / 1-2-3 / 0 (전통 숫자패드 배열)
- *    오른손:   동일 배열 미러 → 어느 손이든 독립 사용 가능
- *    KP 키코드: Windows 계산기/Excel 완전 호환
- *    엄지행: 0 왼 엄지, ENT/BSPC 오른 엄지
  */
     layer3 {
         display-name = "NUMPAD";
         bindings = <
-&trans  &trans      &trans      &trans      &kp KP_MULTIPLY  &kp KP_DIVIDE   &to2_sig  &trans   &kp KP_N7    &kp KP_N8   &kp KP_N9    &kp KP_MULTIPLY  &kp KP_DIVIDE
-&trans  &kp KP_N7   &kp KP_N8   &kp KP_N9   &kp KP_PLUS      &kp KP_MINUS    &to3_sig  &trans   &kp KP_N4    &kp KP_N5   &kp KP_N6    &kp KP_PLUS      &kp KP_MINUS
-&trans  &kp KP_N4   &kp KP_N5   &kp KP_N6   &kp KP_EQUAL     &trans          &to1_sig  &trans   &kp KP_N1    &kp KP_N2   &kp KP_N3    &kp KP_EQUAL     &trans
-&trans  &kp KP_N1   &kp KP_N2   &kp KP_N3   &kp KP_DOT       &trans          &mo 4     &trans   &kp KP_N0    &kp KP_DOT  &kp KP_ENTER &trans           &trans
-&trans  &trans      &trans      &trans      &trans           &kp KP_N0       &to0_sig  &kp RET  &kp BSPC     &trans      &trans       &trans
+&trans  &trans      &trans      &trans      &kp KP_MULTIPLY  &kp KP_DIVIDE   &from3_to2  &trans   &kp KP_N7    &kp KP_N8   &kp KP_N9    &kp KP_MULTIPLY  &kp KP_DIVIDE
+&trans  &kp KP_N7   &kp KP_N8   &kp KP_N9   &kp KP_PLUS      &kp KP_MINUS    &trans      &trans   &kp KP_N4    &kp KP_N5   &kp KP_N6    &kp KP_PLUS      &kp KP_MINUS
+&trans  &kp KP_N4   &kp KP_N5   &kp KP_N6   &kp KP_EQUAL     &trans          &from3_to1  &trans   &kp KP_N1    &kp KP_N2   &kp KP_N3    &kp KP_EQUAL     &trans
+&trans  &kp KP_N1   &kp KP_N2   &kp KP_N3   &kp KP_DOT       &trans          &mo 4       &trans   &kp KP_N0    &kp KP_DOT  &kp KP_ENTER &trans           &trans
+&trans  &trans      &trans      &trans      &trans           &kp KP_N0       &from3_to0  &kp RET  &kp BSPC     &trans      &trans       &trans
         >;
         sensor-bindings = <&horiz_scroll>;
     };
@@ -360,31 +312,29 @@ keymap {
  * ══════════════════════════════════════════════════════════════════
  *
  *  ┌──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┐
- *  │soff  │      │      │ MUTE │Vol-  │Vol+  │[to2] │      │      │      │      │      │      │
+ *  │soff  │      │      │ MUTE │Vol-  │Vol+  │      │      │      │      │      │      │      │
  *  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- *  │BT_PRV│BT_NXT│      │Scl↑  │Mov↑  │Scl↓  │[to3] │BT_PRV│BT_NXT│Scl↑  │Mov↑  │Scl↓  │      │
+ *  │BT_PRV│BT_NXT│      │Scl↑  │Mov↑  │Scl↓  │      │BT_PRV│BT_NXT│Scl↑  │Mov↑  │Scl↓  │      │
  *  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- *  │      │Prev  │Play  │Next  │Mov←  │Mov↓  │[to1] │      │      │Mov←  │Mov↓  │Mov→  │      │
+ *  │      │Prev  │Play  │Next  │Mov←  │Mov↓  │      │      │      │Mov←  │Mov↓  │Mov→  │      │
  *  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
  *  │Sleep │      │      │Scl←  │Mov→  │Scl→  │[mo4] │      │      │Scl←  │      │Scl→  │BTCLR │
  *  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┘
  *  │ MCLK │      │      │      │ RCLK │ LCLK │[to0] │ LCLK │ RCLK │ MCLK │      │      │
  *  └──────┴──────┴──────┴──────┴──────┴──────┘      └──────┴──────┴──────┴──────┴──────┘
  *
- *  설계 원칙:
- *    왼손: BT 관리(상단) + 미디어 제어(홈행) + 마우스 이동/스크롤(중앙)
- *    오른손: 마우스 이동/스크롤 미러 → 왼손이 실제 마우스 잡을 때 오른손 제어
- *    엄지행: LCLK/RCLK/MCLK 양쪽 모두 배치
- *    시스템: soft_off / Sleep / BT_CLR 좌상단 집중 (실수 방지)
+ *  MOUSE 레이어는 mo 4 (누르는 동안만) 방식으로도 진입 가능합니다.
+ *  to4(고정) 진입 시에는 from0_to4 매크로를 사용하고,
+ *  from4_to0으로 BASE 귀환합니다.
  */
     layer4 {
         display-name = "MOUSE";
         bindings = <
-&soft_off    &trans          &trans           &kp C_MUTE       &kp C_VOL_DN      &kp C_VOL_UP       &to2_sig  &trans        &trans        &trans          &trans          &trans           &trans
-&bt BT_PRV   &bt BT_NXT      &trans           &msc SCRL_UP     &mmv MOVE_UP      &msc SCRL_DOWN     &to3_sig  &bt BT_PRV    &bt BT_NXT    &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN   &trans
-&trans       &kp C_PREVIOUS  &kp C_PLAY_PAUSE &kp C_NEXT       &mmv MOVE_LEFT    &mmv MOVE_DOWN     &to1_sig  &trans        &trans        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans
-&kp C_SLEEP  &trans          &trans           &msc SCRL_LEFT   &mmv MOVE_RIGHT   &msc SCRL_RIGHT    &mo 4     &trans        &trans        &msc SCRL_LEFT  &trans          &msc SCRL_RIGHT  &bt BT_CLR
-&mkp MCLK    &trans          &trans           &trans           &mkp RCLK         &mkp LCLK          &to0_sig  &mkp LCLK     &mkp RCLK     &mkp MCLK       &trans          &trans
+&soft_off    &trans          &trans           &kp C_MUTE       &kp C_VOL_DN      &kp C_VOL_UP       &trans        &trans        &trans        &trans          &trans          &trans           &trans
+&bt BT_PRV   &bt BT_NXT      &trans           &msc SCRL_UP     &mmv MOVE_UP      &msc SCRL_DOWN     &trans        &bt BT_PRV    &bt BT_NXT    &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN   &trans
+&trans       &kp C_PREVIOUS  &kp C_PLAY_PAUSE &kp C_NEXT       &mmv MOVE_LEFT    &mmv MOVE_DOWN     &trans        &trans        &trans        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans
+&kp C_SLEEP  &trans          &trans           &msc SCRL_LEFT   &mmv MOVE_RIGHT   &msc SCRL_RIGHT    &mo 4         &trans        &trans        &msc SCRL_LEFT  &trans          &msc SCRL_RIGHT  &bt BT_CLR
+&mkp MCLK    &trans          &trans           &trans           &mkp RCLK         &mkp LCLK          &from4_to0    &mkp LCLK     &mkp RCLK     &mkp MCLK       &trans          &trans
         >;
         sensor-bindings = <&horiz_scroll>;
     };
