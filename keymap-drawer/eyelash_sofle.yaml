@@ -7,7 +7,7 @@ layers:
   - {t: '3', s: '#'}
   - {t: '4', s: $}
   - {t: '5', s: '%'}
-  - '&to2_sig'
+  - '&from0_to2'
   - {t: '6', s: ^}
   - {t: '7', s: '&'}
   - {t: '8', s: '*'}
@@ -17,49 +17,49 @@ layers:
   - $$mdi:keyboard-tab$$
   - Q
   - W
-  - F
-  - P
-  - B
-  - '&to3_sig'
-  - J
-  - L
-  - U
+  - E
+  - R
+  - T
+  - '&from0_to3'
   - Y
-  - {t: ;, s: ':'}
+  - U
+  - I
+  - O
+  - P
   - {t: '=', s: +}
   - $$mdi:apple-keyboard-shift$$
   - A
-  - R
   - S
-  - T
+  - D
+  - F
   - G
-  - '&to1_sig'
-  - M
-  - N
-  - E
-  - I
-  - O
+  - '&from0_to1'
+  - H
+  - J
+  - K
+  - L
+  - {t: ;, s: ':'}
   - {t: '''', s: '"'}
   - $$mdi:apple-keyboard-control$$
   - Z
   - X
   - C
-  - D
   - V
+  - B
   - MOUSE
-  - K
-  - H
+  - N
+  - M
   - {t: ',', s: <}
   - {t: ., s: '>'}
   - {t: /, s: '?'}
   - {t: \, s: '|'}
   - $$mdi:mouse-scroll-wheel$$
-  - NUMPAD
+  - LANG1
   - LGUI
   - $$mdi:apple-keyboard-option$$
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:keyboard-space$$
-  - '&to0_sig'
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:backspace$$', type: backspace}
   - $$mdi:apple-keyboard-option$$
@@ -72,7 +72,7 @@ layers:
   - '#'
   - $
   - '%'
-  - '&to2_sig'
+  - '&from1_to2'
   - ^
   - '&'
   - '*'
@@ -85,7 +85,7 @@ layers:
   - '|'
   - <
   - '>'
-  - '&to3_sig'
+  - '&from1_to3'
   - {t: '[', s: '{'}
   - {t: ']', s: '}'}
   - '{'
@@ -98,7 +98,7 @@ layers:
   - END
   - (
   - )
-  - '&to1_sig'
+  - {t: '$$mdi:transfer$$', type: trans}
   - '{'
   - '}'
   - {t: '=', s: +}
@@ -124,7 +124,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - '&to0_sig'
+  - '&from1_to0'
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -137,7 +137,7 @@ layers:
   - F3
   - F4
   - F5
-  - '&to2_sig'
+  - {t: '$$mdi:transfer$$', type: trans}
   - F6
   - F7
   - F8
@@ -150,7 +150,7 @@ layers:
   - END
   - PG UP
   - {t: '$$mdi:transfer$$', type: trans}
-  - '&to3_sig'
+  - '&from2_to3'
   - {t: '$$mdi:transfer$$', type: trans}
   - PG UP
   - $$mdi:arrow-up-bold$$
@@ -163,7 +163,7 @@ layers:
   - $$mdi:arrow-right-bold$$
   - PG DN
   - {t: '$$mdi:transfer$$', type: trans}
-  - '&to1_sig'
+  - '&from2_to1'
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
@@ -189,7 +189,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - '&to0_sig'
+  - '&from2_to0'
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -202,7 +202,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - KP MULTIPLY
   - KP DIVIDE
-  - '&to2_sig'
+  - '&from3_to2'
   - {t: '$$mdi:transfer$$', type: trans}
   - KP 7
   - KP 8
@@ -215,7 +215,7 @@ layers:
   - KP 9
   - KP PLUS
   - KP MINUS
-  - '&to3_sig'
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - KP 4
   - KP 5
@@ -228,7 +228,7 @@ layers:
   - KP 6
   - KP EQUAL
   - {t: '$$mdi:transfer$$', type: trans}
-  - '&to1_sig'
+  - '&from3_to1'
   - {t: '$$mdi:transfer$$', type: trans}
   - KP 1
   - KP 2
@@ -249,12 +249,12 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {type: held}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - KP 0
-  - '&to0_sig'
+  - '&from3_to0'
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:backspace$$', type: backspace}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -267,7 +267,7 @@ layers:
   - $$mdi:volume-off$$
   - $$mdi:volume-low$$
   - $$mdi:volume-high$$
-  - '&to2_sig'
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -280,7 +280,7 @@ layers:
   - $$mdi:pan-up$$
   - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
   - $$mdi:pan-down$$
-  - '&to3_sig'
+  - {t: '$$mdi:transfer$$', type: trans}
   - {h: '$$mdi:arrow-up-bold$$', s: '$$mdi:bluetooth-connect$$'}
   - {h: '$$mdi:arrow-down-bold$$', s: '$$mdi:bluetooth-connect$$'}
   - $$mdi:pan-up$$
@@ -293,7 +293,7 @@ layers:
   - $$mdi:skip-next$$
   - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
   - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
-  - '&to1_sig'
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
@@ -314,12 +314,12 @@ layers:
   - $$mdi:pan-right$$
   - $$mdi:bluetooth-off$$
   - $$mdi:mouse-scroll-wheel$$
-  - {type: held alternate}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:mouse-right-click-outline$$
   - $$mdi:mouse-left-click-outline$$
-  - '&to0_sig'
+  - '&from4_to0'
   - $$mdi:mouse-left-click-outline$$
   - $$mdi:mouse-right-click-outline$$
   - $$mdi:mouse-scroll-wheel$$
