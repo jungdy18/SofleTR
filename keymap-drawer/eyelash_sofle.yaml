@@ -46,7 +46,7 @@ layers:
   - C
   - D
   - V
-  - MOUSE
+  - '&to4_sig'
   - K
   - H
   - {t: ',', s: <}
@@ -111,7 +111,7 @@ layers:
   - $$mdi:arrow-right-bold$$
   - {t: '[', s: '{'}
   - {t: ']', s: '}'}
-  - MOUSE
+  - '&to4_sig'
   - {t: \, s: '|'}
   - {t: /, s: '?'}
   - {t: ',', s: <}
@@ -176,7 +176,7 @@ layers:
   - COPY
   - PASTE
   - REDO
-  - MOUSE
+  - '&to4_sig'
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -241,7 +241,7 @@ layers:
   - KP 3
   - KP DOT
   - {t: '$$mdi:transfer$$', type: trans}
-  - MOUSE
+  - '&to4_sig'
   - {t: '$$mdi:transfer$$', type: trans}
   - KP 0
   - KP DOT
@@ -306,7 +306,7 @@ layers:
   - $$mdi:pan-left$$
   - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
   - $$mdi:pan-right$$
-  - {t: MOUSE, type: held}
+  - '&to4_sig'
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:pan-left$$
@@ -314,7 +314,7 @@ layers:
   - $$mdi:pan-right$$
   - $$mdi:bluetooth-off$$
   - $$mdi:mouse-scroll-wheel$$
-  - {type: held alternate}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:mouse-right-click-outline$$
