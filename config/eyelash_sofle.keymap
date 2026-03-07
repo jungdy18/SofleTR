@@ -113,7 +113,7 @@
         to0: to0 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&to 0 &kp F16>;        /* F24: MOUSE OFF */
+            bindings = <&to 0 &kp F16>;
         };
 
         to1: to1 {
