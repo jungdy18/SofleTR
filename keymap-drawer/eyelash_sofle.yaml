@@ -121,7 +121,7 @@ layers:
   - $$mdi:mouse-scroll-wheel$$
   - '&mo4'
   - $$mdi:apple-keyboard-command$$
-  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:apple-keyboard-option$$
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:keyboard-space$$
   - '&to1'
