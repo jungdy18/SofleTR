@@ -237,11 +237,11 @@
         layer2 {
             display-name = "NAV";
             bindings = <
-&trans     &kp F1      &kp F2     &kp F3      &kp F4       &kp F5        &to2   &kp F6  &kp F7     &kp F8    &kp F9     &kp F10  &kp F11
-&trans     &kp HOME    &kp UP     &kp END     &kp PG_UP    &trans        &to3   &trans  &kp PG_UP  &kp UP    &kp PG_DN  &trans   &kp F12
-&trans     &kp LEFT    &kp DOWN   &kp RIGHT   &kp PG_DN    &trans        &to1   &trans  &kp LEFT   &kp DOWN  &kp RIGHT  &trans   &trans
-&trans     &kp K_UNDO  &kp K_CUT  &kp K_COPY  &kp K_PASTE  &kp K_REDO    &mo 4  &trans  &trans     &trans    &trans     &trans   &trans
-&mkp MCLK  &trans      &trans     &trans      &trans       &trans        &to0   &trans  &trans     &trans    &trans     &trans
+&kp ESC         &kp F1      &kp F2        &kp F3        &kp F4       &kp F5        &to2   &kp F6     &kp F7         &kp F8     &kp F9  &kp F10  &kp F11
+&kp TAB         &trans      &trans        &trans        &kp UP       &trans        &to3   &trans     &kp UP         &trans     &trans  &trans   &kp F12
+&kp LEFT_SHIFT  &trans      &trans        &kp LEFT      &kp DOWN     &kp RIGHT     &to1   &kp LEFT   &kp DOWN       &kp RIGHT  &trans  &trans   &trans
+&kp LCTRL       &kp K_UNDO  &kp K_CUT     &kp K_COPY    &kp K_PASTE  &kp K_REDO    &mo 4  &trans     &trans         &trans     &trans  &trans   &trans
+&mkp MCLK       &trans      &kp LEFT_WIN  &kp LEFT_ALT  &kp DELETE   &kp SPACE     &to0   &kp ENTER  &kp BACKSPACE  &kp RALT   &trans  &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -267,11 +267,11 @@
         layer3 {
             display-name = "NUMPAD";
             bindings = <
-&trans  &trans     &trans     &trans     &kp KP_MULTIPLY  &kp KP_DIVIDE    &to3   &trans   &kp KP_N7  &kp KP_N8   &kp KP_N9     &kp KP_MULTIPLY  &kp KP_DIVIDE
-&trans  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_PLUS      &kp KP_MINUS     &to2   &trans   &kp KP_N4  &kp KP_N5   &kp KP_N6     &kp KP_PLUS      &kp KP_MINUS
-&trans  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_EQUAL     &trans           &to1   &trans   &kp KP_N1  &kp KP_N2   &kp KP_N3     &kp KP_EQUAL     &trans
-&trans  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DOT       &trans           &mo 4  &trans   &kp KP_N0  &kp KP_DOT  &kp KP_ENTER  &trans           &trans
-&trans  &trans     &trans     &trans     &trans           &kp KP_N0        &to0   &kp RET  &kp BSPC   &trans      &trans        &trans
+&trans  &trans     &trans     &trans        &kp KP_MULTIPLY  &kp KP_DIVIDE    &to3   &trans   &kp KP_N7  &kp KP_N8   &kp KP_N9     &kp KP_MULTIPLY  &kp KP_DIVIDE
+&trans  &kp KP_N7  &kp KP_N8  &kp KP_N9     &kp KP_PLUS      &kp KP_MINUS     &to2   &trans   &kp KP_N4  &kp KP_N5   &kp KP_N6     &kp KP_PLUS      &kp KP_MINUS
+&trans  &kp KP_N4  &kp KP_N5  &kp KP_N6     &kp KP_EQUAL     &trans           &to1   &trans   &kp KP_N1  &kp KP_N2   &kp KP_N3     &kp KP_EQUAL     &trans
+&trans  &kp KP_N1  &kp KP_N2  &kp KP_N3     &kp KP_DOT       &trans           &mo 4  &trans   &kp KP_N0  &kp KP_DOT  &kp KP_ENTER  &trans           &trans
+&trans  &trans     &trans     &kp LEFT_ALT  &kp DEL          &kp SPACE        &to0   &kp RET  &kp BSPC   &kp RALT    &trans        &trans
             >;
 
             sensor-bindings = <&horiz_scroll>;
@@ -301,11 +301,11 @@
         layer4 {
             display-name = "MOUSE";
             bindings = <
-&soft_off    &trans          &trans            &kp C_MUTE      &kp C_VOL_DN     &kp C_VOL_UP       &to2   &trans      &trans      &trans          &trans          &trans           &trans
-&bt BT_PRV   &bt BT_NXT      &trans            &msc SCRL_UP    &mmv MOVE_UP     &msc SCRL_DOWN     &to3   &bt BT_PRV  &bt BT_NXT  &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN   &trans
-&trans       &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT      &mmv MOVE_LEFT   &mmv MOVE_DOWN     &to1   &trans      &trans      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans
-&kp C_SLEEP  &trans          &trans            &msc SCRL_LEFT  &mmv MOVE_RIGHT  &msc SCRL_RIGHT    &mo 4  &trans      &trans      &msc SCRL_LEFT  &trans          &msc SCRL_RIGHT  &bt BT_CLR
-&mkp MCLK    &trans          &trans            &trans          &mkp RCLK        &mkp LCLK          &to0   &mkp LCLK   &mkp RCLK   &mkp MCLK       &trans          &trans
+&bt BT_CLR   &trans        &trans     &kp C_MUTE      &kp C_VOL_DN    &kp C_VOL_UP       &to2   &trans           &trans        &trans             &trans          &trans           &trans
+&trans       &kp UP_ARROW  &trans     &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN     &to3   &kp K_SCROLL_UP  &kp UP_ARROW  &kp K_SCROLL_DOWN  &trans          &mmv MOVE_UP     &trans
+&kp LEFT     &kp DOWN      &kp RIGHT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT    &to1   &kp LEFT         &kp DOWN      &kp RIGHT          &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT
+&kp C_SLEEP  &trans        &trans     &msc SCRL_LEFT  &trans          &msc SCRL_RIGHT    &mo 4  &msc SCRL_LEFT   &trans        &msc SCRL_RIGHT    &trans          &msc SCRL_RIGHT  &bt BT_CLR
+&mkp MCLK    &trans        &trans     &trans          &mkp RCLK       &mkp LCLK          &to0   &mkp LCLK        &mkp RCLK     &mkp MCLK          &trans          &trans
             >;
 
             sensor-bindings = <&horiz_scroll>;
