@@ -211,7 +211,7 @@
 &kp TAB         &kp GRAVE  &kp TILDE     &kp PIPE      &kp LT      &kp GT       &to3  &kp LBKT    &kp RBKT       &kp LBRC   &kp RBRC   &kp PLUS   &kp MINUS
 &kp LEFT_SHIFT  &kp HOME   &kp UP        &kp END       &kp LPAR    &kp RPAR     &to1  &kp LBRC    &kp RBRC       &kp EQUAL  &kp COLON  &kp SEMI   &kp DQT
 &kp LCTRL       &kp LEFT   &kp DOWN      &kp RIGHT     &kp LBKT    &kp RBKT     &mo4  &kp BSLH    &kp FSLH       &kp COMMA  &kp DOT    &kp QMARK  &kp PIPE
-&mkp MCLK       &mo4       &kp LEFT_GUI  &kp LEFT_ALT  &kp DELETE  &kp SPACE    &to1  &kp RETURN  &kp BACKSPACE  &trans     &trans     &trans
+&mkp MCLK       &mo4       &kp LEFT_GUI  &kp LEFT_ALT  &kp DELETE  &kp SPACE    &to1  &kp RETURN  &kp BACKSPACE  &kp RALT   &trans     &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -305,7 +305,7 @@
 &trans       &kp UP_ARROW  &trans     &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN     &to3    &kp K_SCROLL_UP  &kp UP_ARROW  &kp K_SCROLL_DOWN  &trans          &mmv MOVE_UP     &trans
 &kp LEFT     &kp DOWN      &kp RIGHT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT    &to1    &kp LEFT         &kp DOWN      &kp RIGHT          &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT
 &kp C_SLEEP  &trans        &trans     &msc SCRL_LEFT  &trans          &msc SCRL_RIGHT    &trans  &msc SCRL_LEFT   &trans        &msc SCRL_RIGHT    &trans          &msc SCRL_RIGHT  &bt BT_CLR
-&mkp MCLK    &trans        &trans     &trans          &mkp RCLK       &mkp LCLK          &to0    &mkp LCLK        &mkp RCLK     &mkp MCLK          &trans          &trans
+&mkp MCLK    &trans        &trans     &trans          &mkp RCLK       &mkp LCLK          &to0    &mkp LCLK        &mkp RCLK     &trans             &trans          &trans
             >;
 
             sensor-bindings = <&horiz_scroll>;
