@@ -207,11 +207,11 @@
         layer1 {
             display-name = "SYMBOL";
             bindings = <
-&kp TILDE       &kp EXCL   &kp AT        &kp HASH   &kp DLLR    &kp PRCNT    &to2  &kp CARET   &kp AMPS       &kp ASTRK  &kp LPAR   &kp RPAR   &kp UNDER
-&kp TAB         &kp GRAVE  &kp TILDE     &kp PIPE   &kp LT      &kp GT       &to3  &kp LBKT    &kp RBKT       &kp LBRC   &kp RBRC   &kp PLUS   &kp MINUS
-&kp LEFT_SHIFT  &kp HOME   &kp UP        &kp END    &kp LPAR    &kp RPAR     &to1  &kp LBRC    &kp RBRC       &kp EQUAL  &kp COLON  &kp SEMI   &kp DQT
-&kp LCTRL       &kp LEFT   &kp DOWN      &kp RIGHT  &kp LBKT    &kp RBKT     &mo4  &kp BSLH    &kp FSLH       &kp COMMA  &kp DOT    &kp QMARK  &kp PIPE
-&mkp MCLK       &mo4       &kp LEFT_GUI  &trans     &kp DELETE  &kp SPACE    &to1  &kp RETURN  &kp BACKSPACE  &trans     &trans     &trans
+&kp TILDE       &kp EXCL   &kp AT        &kp HASH      &kp DLLR    &kp PRCNT    &to2  &kp CARET   &kp AMPS       &kp ASTRK  &kp LPAR   &kp RPAR   &kp UNDER
+&kp TAB         &kp GRAVE  &kp TILDE     &kp PIPE      &kp LT      &kp GT       &to3  &kp LBKT    &kp RBKT       &kp LBRC   &kp RBRC   &kp PLUS   &kp MINUS
+&kp LEFT_SHIFT  &kp HOME   &kp UP        &kp END       &kp LPAR    &kp RPAR     &to1  &kp LBRC    &kp RBRC       &kp EQUAL  &kp COLON  &kp SEMI   &kp DQT
+&kp LCTRL       &kp LEFT   &kp DOWN      &kp RIGHT     &kp LBKT    &kp RBKT     &mo4  &kp BSLH    &kp FSLH       &kp COMMA  &kp DOT    &kp QMARK  &kp PIPE
+&mkp MCLK       &mo4       &kp LEFT_GUI  &kp LEFT_ALT  &kp DELETE  &kp SPACE    &to1  &kp RETURN  &kp BACKSPACE  &trans     &trans     &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
