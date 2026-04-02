@@ -149,11 +149,11 @@
         layer4 {
             display-name = "MOUSE";
             bindings = <
-&kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_PP    &bt BT_SEL 2    &kp C_MUTE      &trans             &to 2   &trans          &trans        &trans           &trans          &trans          &kp C_SLEEP
-&trans             &kp UP_ARROW     &trans      &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN     &trans  &trans          &kp UP_ARROW  &trans           &trans          &mmv MOVE_UP    &trans
-&kp LEFT           &kp DOWN         &kp RIGHT   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT    &to 1   &kp LEFT        &kp DOWN      &kp RIGHT        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT
-&trans             &kp C_PREV       &kp C_NEXT  &msc SCRL_LEFT  &trans          &msc SCRL_RIGHT    &to 3   &msc SCRL_LEFT  &trans        &msc SCRL_RIGHT  &trans          &trans          &bt BT_CLR
-&mkp MCLK          &mo 4            &trans      &trans          &mkp RCLK       &mkp LCLK          &mo 4   &mkp LCLK       &mkp RCLK     &mkp MCLK        &trans          &trans
+&kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_PP    &bt BT_SEL 2    &kp C_MUTE      &trans             &to 2   &kp PRINTSCREEN  &trans        &trans           &trans          &trans          &kp C_SLEEP
+&trans             &kp UP_ARROW     &trans      &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN     &trans  &trans           &kp UP_ARROW  &trans           &trans          &mmv MOVE_UP    &trans
+&kp LEFT           &kp DOWN         &kp RIGHT   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT    &to 1   &kp LEFT         &kp DOWN      &kp RIGHT        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT
+&trans             &kp C_PREV       &kp C_NEXT  &msc SCRL_LEFT  &trans          &msc SCRL_RIGHT    &to 3   &msc SCRL_LEFT   &trans        &msc SCRL_RIGHT  &trans          &trans          &bt BT_CLR
+&mkp MCLK          &mo 4            &trans      &trans          &mkp RCLK       &mkp LCLK          &mo 4   &mkp LCLK        &mkp RCLK     &mkp MCLK        &trans          &trans
             >;
 
             sensor-bindings = <&horiz_scroll>;
