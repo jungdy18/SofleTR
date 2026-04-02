@@ -7,7 +7,7 @@ layers:
   - {t: '3', s: '#'}
   - {t: '4', s: $}
   - {t: '5', s: '%'}
-  - $$mdi:pan-up$$
+  - Ctl+$$mdi:arrow-up-bold$$
   - {t: '6', s: ^}
   - {t: '7', s: '&'}
   - {t: '8', s: '*'}
@@ -20,7 +20,7 @@ layers:
   - E
   - R
   - T
-  - $$mdi:pan-down$$
+  - Ctl+$$mdi:arrow-down-bold$$
   - Y
   - U
   - I
@@ -33,7 +33,7 @@ layers:
   - D
   - F
   - G
-  - Ctl+$$mdi:keyboard-tab$$
+  - Ctl+$$mdi:arrow-left-bold$$
   - H
   - J
   - K
@@ -46,7 +46,7 @@ layers:
   - C
   - V
   - B
-  - Ctl+Sft+$$mdi:keyboard-tab$$
+  - Ctl+$$mdi:arrow-right-bold$$
   - N
   - M
   - {t: ',', s: <}
@@ -54,12 +54,12 @@ layers:
   - {t: /, s: '?'}
   - {t: \, s: '|'}
   - $$mdi:mouse-scroll-wheel$$
-  - SYMBOL
+  - MOUSE
   - LGUI
   - $$mdi:apple-keyboard-option$$
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:keyboard-space$$
-  - {t: SYMBOL, h: toggle}
+  - MOUSE
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:backspace$$', type: backspace}
   - $$mdi:apple-keyboard-option$$
@@ -72,7 +72,7 @@ layers:
   - '#'
   - $
   - '%'
-  - {t: NUMPAD, h: toggle}
+  - Ctl+$$mdi:arrow-up-bold$$
   - ^
   - '&'
   - '*'
@@ -85,7 +85,7 @@ layers:
   - '|'
   - <
   - '>'
-  - {t: BASE, h: toggle}
+  - Ctl+$$mdi:arrow-down-bold$$
   - {t: '[', s: '{'}
   - {t: ']', s: '}'}
   - '{'
@@ -98,7 +98,7 @@ layers:
   - '{'
   - '}'
   - {t: '[', s: '{'}
-  - {t: NAV, h: toggle}
+  - Ctl+$$mdi:arrow-left-bold$$
   - {t: ']', s: '}'}
   - {t: '=', s: +}
   - +
@@ -111,7 +111,7 @@ layers:
   - '?'
   - '!'
   - '|'
-  - MOUSE
+  - Ctl+$$mdi:arrow-right-bold$$
   - {t: '-', s: _}
   - _
   - {t: ',', s: <}
@@ -119,7 +119,7 @@ layers:
   - '&'
   - ^
   - $$mdi:mouse-scroll-wheel$$
-  - {t: MOUSE, type: held}
+  - MOUSE
   - LGUI
   - $$mdi:apple-keyboard-option$$
   - $$mdi:backspace-reverse-outline$$
@@ -137,7 +137,7 @@ layers:
   - F3
   - F4
   - F5
-  - $$mdi:pan-up$$
+  - Ctl+$$mdi:arrow-up-bold$$
   - F6
   - F7
   - F8
@@ -150,7 +150,7 @@ layers:
   - END
   - PG UP
   - {t: '$$mdi:transfer$$', type: trans}
-  - $$mdi:pan-down$$
+  - Ctl+$$mdi:arrow-down-bold$$
   - {t: '$$mdi:transfer$$', type: trans}
   - PG UP
   - END
@@ -163,7 +163,7 @@ layers:
   - $$mdi:arrow-right-bold$$
   - PG DN
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - Ctl+$$mdi:arrow-left-bold$$
   - {t: '$$mdi:transfer$$', type: trans}
   - PgDn
   - $$mdi:arrow-left-bold$$
@@ -176,7 +176,7 @@ layers:
   - COPY
   - PASTE
   - REDO
-  - {t: '$$mdi:transfer$$', type: trans}
+  - Ctl+$$mdi:arrow-right-bold$$
   - REDO
   - PASTE
   - COPY
@@ -202,7 +202,7 @@ layers:
   - F11
   - F12
   - Ins
-  - KP PLUS
+  - Ctl+$$mdi:arrow-up-bold$$
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: /, s: '?'}
@@ -215,7 +215,7 @@ layers:
   - F8
   - F9
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - Ctl+$$mdi:arrow-down-bold$$
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '7', s: '&'}
   - {t: '8', s: '*'}
@@ -228,7 +228,7 @@ layers:
   - F5
   - F6
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: BASE, h: toggle}
+  - Ctl+$$mdi:arrow-left-bold$$
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '4', s: $}
   - {t: '5', s: '%'}
@@ -241,7 +241,7 @@ layers:
   - F2
   - F3
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - Ctl+$$mdi:arrow-right-bold$$
   - {t: '0', s: )}
   - {t: '1', s: '!'}
   - {t: '2', s: '@'}
@@ -254,59 +254,59 @@ layers:
   - $$mdi:apple-keyboard-option$$
   - $$mdi:backspace-reverse-outline$$
   - $$mdi:keyboard-space$$
-  - KP DIVIDE
+  - {t: BASE, h: toggle}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:backspace$$', type: backspace}
   - $$mdi:apple-keyboard-option$$
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   MOUSE:
-  - $$mdi:bluetooth-off$$
-  - {h: '1', s: '$$mdi:bluetooth-connect$$'}
-  - {h: '2', s: '$$mdi:bluetooth-connect$$'}
+  - $$mdi:volume-low$$
+  - $$mdi:volume-high$$
+  - $$mdi:play-pause$$
   - {h: '3', s: '$$mdi:bluetooth-connect$$'}
   - $$mdi:volume-off$$
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
+  - {t: NAV, h: toggle}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - $$mdi:volume-high$$
-  - {t: '$$mdi:transfer$$', type: trans}
-  - $$mdi:pan-up$$
-  - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
-  - $$mdi:pan-down$$
-  - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - $$mdi:pan-up$$
-  - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
-  - $$mdi:pan-down$$
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - $$mdi:volume-low$$
-  - $$mdi:play-pause$$
-  - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
-  - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
-  - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
-  - {t: BASE, h: toggle}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
-  - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
-  - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - SLEEP
+  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:arrow-up-bold$$
+  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:pan-up$$
+  - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
+  - $$mdi:pan-down$$
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:arrow-up-bold$$
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:arrow-left-bold$$
+  - $$mdi:arrow-down-bold$$
+  - $$mdi:arrow-right-bold$$
+  - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
+  - {t: SYMBOL, h: toggle}
+  - $$mdi:arrow-left-bold$$
+  - $$mdi:arrow-down-bold$$
+  - $$mdi:arrow-right-bold$$
+  - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:skip-previous$$
   - $$mdi:skip-next$$
   - $$mdi:pan-left$$
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:pan-right$$
-  - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$', type: held}
+  - {t: NUMPAD, h: toggle}
   - $$mdi:pan-left$$
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:pan-right$$
@@ -319,7 +319,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:mouse-right-click-outline$$
   - $$mdi:mouse-left-click-outline$$
-  - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
+  - {t: BASE, h: toggle, type: held alternate}
   - $$mdi:mouse-left-click-outline$$
   - $$mdi:mouse-right-click-outline$$
   - $$mdi:mouse-scroll-wheel$$
