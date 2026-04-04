@@ -47,23 +47,6 @@
     /* ─── Behaviors ────────────────────────────────────────────────────────── */
 
     behaviors {
-        sk_ctrl: sk_ctrl {
-            compatible = "zmk,behavior-sticky-key";
-            #binding-cells = <0>;
-            bindings = <&kp LCTRL>;
-            release-after-ms = <1500>;
-            quick-release;
-            label = "SK_CTRL";
-        };
-
-        sk_shift: sk_shift {
-            compatible = "zmk,behavior-sticky-key";
-            #binding-cells = <0>;
-            bindings = <&kp LSHFT>;
-            release-after-ms = <1500>;
-            quick-release;
-            label = "SK_SHIFT";
-        };
     };
 
     keymap {
