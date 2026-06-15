@@ -2,16 +2,12 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: zzeneg # <-- new entry
-      url-base: https://github.com/zzeneg
       # Additional modules containing boards/shields/custom code can be listed here as well.
       # See:
       # - https://zmk.dev/docs/features/modules
       # - https://docs.zephyrproject.org/3.5.0/develop/west/manifest.html#projects
   #  - name: gpeye
   #    url-base: https://github.com/GPeye
-
-
   projects:
    # - name: mario-peripheral-animation
    #   remote: gpeye
@@ -23,9 +19,5 @@ manifest:
       remote: zmkfirmware
       revision: v0.3.0
       import: app/west.yml
-
-    - name: zmk-raw-hid # <-- new entry
-      remote: zzeneg
-      revision: main
   self:
     path: boards
