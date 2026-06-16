@@ -12,3 +12,4 @@ include:
     artifact-name: eyelash_sofle_studio_left
   - board: nice_nano_v2
     shield: settings_reset
+    shield: eyelash_sofle raw_hid_adapter
