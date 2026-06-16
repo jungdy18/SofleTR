@@ -4,6 +4,7 @@
 #include <raw_hid/hid.h>
 
 static int layer_state_listener(const zmk_event_t *eh) {
+    printk("LAYER EVENT!\n");
     struct zmk_layer_state_changed *ev = as_zmk_layer_state_changed(eh);
     if (!ev) return ZMK_EV_EVENT_BUBBLE;
 
