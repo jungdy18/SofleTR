@@ -8,6 +8,8 @@ manifest:
       # - https://docs.zephyrproject.org/3.5.0/develop/west/manifest.html#projects
     - name: zzeneg
       url-base: https://github.com/zzeneg
+    - name: srwi
+      url-base: https://github.com/srwi
   #  - name: gpeye
   #    url-base: https://github.com/GPeye
   projects:
@@ -24,5 +26,8 @@ manifest:
     - name: zmk-raw-hid
       remote: zzeneg
       revision: main
+    - name: zmk-keypeek-layer-notifier    # ← 추가
+      remote: srwi
+      revision: master
   self:
     path: boards
